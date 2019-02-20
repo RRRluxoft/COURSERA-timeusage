@@ -170,7 +170,7 @@ object TimeUsage {
     val ageProjection: Column = when($"teage" > 55, "elder")
       .otherwise(
         when($"teage" >= 18 && $"teage" < 23, "young").otherwise(
-          when($"teage".between(23, 55), "active")
+          when($"teage".between(23, 55), "active").otherwise("child")
         )
       ).as("age")
 
